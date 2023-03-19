@@ -15,6 +15,10 @@ const bodyRecordSchema = mongoose.Schema(
       type: Number,
       required: true,
     },
+    bodyWeight: {
+      type: Number,
+      required: true,
+    },
   },
   {
     timestamps: true,

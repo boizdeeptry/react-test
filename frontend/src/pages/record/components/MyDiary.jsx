@@ -7,7 +7,7 @@ import { WrapperDiary } from './styled'
 const MyDiary = () => {
   const [dataDiary, setDataDiary] = useState([])
   const [pages, setPages] = useState(1)
-  const defaultPerPage = 10
+  const defaultPerPage = 8
   const handleGetDiary = async () => {
     const result = await api.get(
       `/diary?date=2023-03-18&page=${pages}&limit=${defaultPerPage}`,
@@ -30,7 +30,7 @@ const MyDiary = () => {
             className="flex flex-col gap-2 p-4 border-[2px] border-borderColor w-[231px] h-[231px]"
           >
             <span className="w-[60%] text-[18px]">
-              {moment(item?.createdAt).format('YYYY-MM-DD HH:mm')}
+              {moment(item?.date).format('YYYY-MM-DD HH:mm')}
             </span>
             <span className="w-full text-[14px]">{item?.description}</span>
           </div>

@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <div className=" bg-black500 ">
-      <div className="h-[128px] m-auto flex max-w-[960px] items-center gap-[45px] text-white text-[16px]">
+      <div className="h-[128px] m-auto flex max-w-[960px] items-center gap-[45px] text-white text-opacity-[0.8] text-[16px]">
         <span className="text-[11px] cursor-pointer">会員登録</span>
         <span className="text-[11px] cursor-pointer">運営会社</span>
         <span className="text-[11px] cursor-pointer">利用規約</span>

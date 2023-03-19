@@ -85,10 +85,27 @@ const LineChart = () => {
         '4月',
         '5月',
       ],
+      labels: {
+        style: {
+          color: '#FFFFFF',
+        },
+      },
     },
+    colors: ['#FFCC21', '#8FE9D0'],
     yAxis: [
       {
         id: 'y_axis_0',
+        gridLineWidth: 0.2,
+        gridZIndex: 2,
+        title: '',
+        labels: {
+          formatter: function () {
+            return ''
+          },
+        },
+      },
+      {
+        id: 'y_axis_1',
         gridLineWidth: 0.2,
         gridZIndex: 2,
         title: '',
@@ -105,6 +122,11 @@ const LineChart = () => {
         yAxis: 'y_axis_0',
         name: '',
         data: dataChart.map((item) => item.bodyFat),
+      },
+      {
+        yAxis: 'y_axis_1',
+        name: '',
+        data: dataChart.map((item) => item.bodyWeight),
       },
     ],
   }

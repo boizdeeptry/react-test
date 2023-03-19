@@ -3,12 +3,13 @@ import moment from "moment";
 import BodyRecord from "../model/bodyRecordModel.js";
 
 const createBodyRecord = asyncHandler(async (req, res) => {
-  const { date, bodyFat } = req.body;
+  const { date, bodyFat, bodyWeight } = req.body;
 
   const bodyRecord = await BodyRecord.create({
     user: req.user._id,
     date,
     bodyFat,
+    bodyWeight,
   });
 
   if (bodyRecord) {
@@ -16,6 +17,7 @@ const createBodyRecord = asyncHandler(async (req, res) => {
       _id: bodyRecord._id,
       date: bodyRecord.date,
       bodyFat: bodyRecord.bodyFat,
+      bodyWeight: bodyRecord.bodyWeight,
     });
   } else {
     res.status(400);
@@ -28,7 +30,6 @@ const getBodyRecords = asyncHandler(async (req, res) => {
   const filter = {};
   if (req.query.date) {
     filter.date = req.query.date;
-    console.log("filter", req.query.date);
 
     const data = await BodyRecord.find({
       user: req.user._id,
@@ -44,10 +45,8 @@ const getBodyRecords = asyncHandler(async (req, res) => {
     const date = new Date(filter.month);
 
     const month = date.toLocaleDateString("en-US", { month: "numeric" });
-    console.log(month);
 
     const year = date.toLocaleDateString("en-US", { year: "numeric" });
-    console.log(year);
 
     const data = await BodyRecord.find({
       user: req.user._id,
@@ -114,7 +113,6 @@ const getBodyRecords = asyncHandler(async (req, res) => {
   if (req.query.year) {
     filter.year = req.query.year;
     const year = moment(filter.year).isoWeekYear();
-    console.log("year", year);
 
     const data = await BodyRecord.find({
       user: req.user._id,
@@ -129,10 +127,8 @@ const getBodyRecords = asyncHandler(async (req, res) => {
   if (req.query.week) {
     filter.week = req.query.week;
     const week = moment(filter.week).isoWeeks();
-    console.log(week);
 
     const year = moment(filter.week).isoWeekYear();
-    console.log(year);
 
     const data = await BodyRecord.find({
       user: req.user._id,

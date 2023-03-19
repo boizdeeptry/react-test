@@ -4,8 +4,8 @@ import AuthGuard from '../pages/auth/AuthGua'
 import WithOutData from '../pages/auth/withoutData'
 import Challenge from '../pages/challenge'
 import Question from '../pages/question'
-import MyPage from '../pages/record'
-import Home from '../pages/home/Home'
+import Record from '../pages/record'
+import Home from '../pages/home'
 import Healthy from '../pages/healthy'
 import Layout from '../pages/layout/Layout'
 import Login from '../pages/login/Login'
@@ -16,7 +16,7 @@ const routesConfig = [
     children: [
       {
         path: '/',
-        element: <MyPage />,
+        element: <Home />,
       },
       {
         path: '/challenge',
@@ -24,7 +24,7 @@ const routesConfig = [
       },
       {
         path: '/record',
-        element: <Home />,
+        element: <Record />,
       },
       {
         path: '/question',
